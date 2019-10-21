@@ -1,0 +1,55 @@
+<html>
+<head>
+    <title>
+        ChatBot | College Inquiry
+    </title>
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'style.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'https://www.w3schools.com/w3css/4/w3.css'%}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script type="text/javascript" src="{% static 'script.js' %}"></script>
+    <style>
+       
+      
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+
+            button:hover {
+                opacity: 0.8;
+            }
+
+        .cancelbtn {
+            width: auto;
+            padding: 10px 18px;
+            background-color: #fffcbd;
+        }
+
+     
+    </style>
+</head>
+
+<body>
+    {% if user.is_authenticated %}
+    <p><b></b>Hello, {{user.first_name}}</b></p>
+    <a href="account/logout" type="button" class="cancelbtn">LogOut</a>
+    {% else %}
+    <a href="account/login" type="button" class="cancelbtn">Login</a>
+    <a href="account/register" type="button" class="cancelbtn">Register</a>
+    {% endif %}
+    <center><img src="{% static 'raisoni.png' %}" alt="Italian Trulli" style="width:400px;height:200px;"></center>
+    <div>
+        {% block content %}
+        {% endblock %}
+    </div>
+    <p class="footer" id='bottom_center'>Made with <img src="{% static 'heart.png' %}" alt="love"> by Saurabh, Yash, @Varad</p>
+</body>
+</html>

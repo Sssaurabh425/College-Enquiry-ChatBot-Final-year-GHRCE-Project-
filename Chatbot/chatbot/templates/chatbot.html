@@ -1,0 +1,27 @@
+{% extends "header.html" %}
+
+{% block content %}
+
+<div id='bodybox'>
+    <div id='chatboarder'>
+        <p id="chatlog7" class="chatlog">&nbsp;</p>
+        <p id="chatlog6" class="chatlog">&nbsp;</p>
+        <p id="chatlog5" class="chatlog">&nbsp;</p>
+        <p id="chatlog4" class="chatlog">&nbsp;</p>
+        <p id="chatlog3" class="chatlog">&nbsp;</p>
+        <p id="chatlog2" class="chatlog">&nbsp;</p>
+        <p id="chatlog1" class="chatlog">&nbsp;</p>
+
+        <input onclick="myFunction()" type="text" name="chat" id="chatbox" placeholder="Hi there! Type here to talk to me.">
+    </div>
+</div>
+<script>
+    function myFunction() {
+        {% if user.is_authenticated %}
+        document.getElementById("chatbox").disabled = false;
+        {% else %}
+        document.getElementById("chatbox").disabled = true;
+        {% endif %}
+    }
+</script>
+{% endblock %}
